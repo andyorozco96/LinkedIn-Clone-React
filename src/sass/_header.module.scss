@@ -9,6 +9,7 @@
   padding: 10px 0;
   width: 100%;
   z-index: 999;
+  background-color: $white;
 
   /* LEFT SIDE OF THE HEADER*/
   .header__left {
@@ -27,7 +28,7 @@
       border-radius: 5px;
       height: 22px;
       color: $gray;
-      background-color: $bg-color;
+      background-color: $bg-input-color;
 
       input {
         outline: none;

@@ -1,0 +1,19 @@
+@import "./abstracts/variables";
+
+.inputOption {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  color: $gray;
+  padding: 10px;
+  cursor: pointer;
+
+  h4 {
+    margin-left: 5px;
+  }
+
+  &:hover {
+    background-color: whitesmoke;
+    border-radius: 10px;
+  }
+}
