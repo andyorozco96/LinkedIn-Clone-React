@@ -18,6 +18,7 @@ import {
 } from "firebase/firestore";
 import { selectUser } from "../features/userSlice";
 import { useSelector } from "react-redux";
+import FlipMove from "react-flip-move";
 
 function Feed() {
   const userLogged = useSelector(selectUser);
@@ -82,15 +83,17 @@ function Feed() {
       </div>
 
       {/* Here comes posts */}
-      {posts.map(({ id, data: { name, description, message, photoUrl } }) => (
-        <Post
-          key={id}
-          name={name}
-          description={description}
-          message={message}
-          photoUrl={photoUrl}
-        />
-      ))}
+      <FlipMove>
+        {posts.map(({ id, data: { name, description, message, photoUrl } }) => (
+          <Post
+            key={id}
+            name={name}
+            description={description}
+            message={message}
+            photoUrl={photoUrl}
+          />
+        ))}
+      </FlipMove>
     </div>
   );
 }

@@ -24,12 +24,12 @@ function Sidebar() {
         <Avatar
           className={style.sidebar__avatar}
           src={
-            userLogged.photoUrl ? userLogged.photoUrl : "hola"
+            userLogged.photoUrl && userLogged.photoUrl
             // : userLogged.email[0].topUpperCase()
           }
           alt="Profile picture"
         >
-          {userLogged.displayName[0].toUpperCase()}
+          {/* {userLogged?.email[0].toUpperCase()} */}
         </Avatar>
         <h2>{userLogged.displayName}</h2>
         <h4>{userLogged.email}</h4>

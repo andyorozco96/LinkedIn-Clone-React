@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import Feed from "./components/Feed";
 import Login from "./components/Login";
+import Widgets from "./components/Widgets";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser } from "./features/userSlice";
 import { auth } from "./firebase";
@@ -41,6 +42,7 @@ function App() {
           <div className="app__body">
             <Sidebar />
             <Feed />
+            <Widgets />
           </div>
         </>
       )}

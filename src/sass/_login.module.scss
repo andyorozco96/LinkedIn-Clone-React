@@ -3,48 +3,53 @@
 .login {
   display: grid;
   place-items: center;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   padding-top: 10px;
   padding-bottom: 10px;
   min-height: 100vh;
 
-  img {
-    object-fit: contain;
-    height: 70px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-
-  form {
+  .login__container {
     display: flex;
     flex-direction: column;
+    align-items: center;
 
-    input {
-      width: 350px;
-      height: 50px;
-      font-size: 20px;
-      padding-left: 10px;
-      margin-bottom: 10px;
-      border-radius: 5px;
+    img {
+      object-fit: contain;
+      height: 70px;
+      margin-top: 20px;
+      margin-bottom: 20px;
     }
 
-    button {
-      width: 365px;
-      height: 50px;
-      border-radius: 5px;
-      font-size: large;
-      color: $white;
-      background-color: $primary;
+    form {
+      display: flex;
+      flex-direction: column;
+
+      input {
+        width: 350px;
+        height: 50px;
+        font-size: 20px;
+        padding-left: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+      }
+
+      button {
+        width: 365px;
+        height: 50px;
+        border-radius: 5px;
+        font-size: large;
+        color: $white;
+        background-color: $primary;
+      }
     }
-  }
 
-  p {
-    margin-top: 20px;
+    p {
+      margin-top: 20px;
 
-    .login__register {
-      color: $primary;
-      cursor: pointer;
+      .login__register {
+        color: $primary;
+        cursor: pointer;
+      }
     }
   }
 }

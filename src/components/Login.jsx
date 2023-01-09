@@ -90,55 +90,57 @@ function Login() {
 
   return (
     <div className={style.login}>
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/2560px-LinkedIn_Logo.svg.png"
-        alt="LinkedIn logo"
-      />
-
-      <form>
-        <input
-          type="text"
-          placeholder="Full name (required if registering"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
+      <div className={style.login__container}>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/2560px-LinkedIn_Logo.svg.png"
+          alt="LinkedIn logo"
         />
 
-        <input
-          type="text"
-          placeholder="Profile pic URL (optional)"
-          name="photoUrl"
-          value={formData.photoUrl}
-          onChange={handleChange}
-        />
+        <form>
+          <input
+            type="text"
+            placeholder="Full name (required if registering)"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+          />
 
-        <input
-          type="text"
-          placeholder="Email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-        />
+          <input
+            type="text"
+            placeholder="Profile pic URL (optional)"
+            name="photoUrl"
+            value={formData.photoUrl}
+            onChange={handleChange}
+          />
 
-        <input
-          type="password"
-          placeholder="Password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-        />
+          <input
+            type="text"
+            placeholder="Email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+          />
 
-        <button type="submit" onClick={loginToApp}>
-          Sign in
-        </button>
-      </form>
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+          />
 
-      <p>
-        Not a member?{" "}
-        <span onClick={register} className={style.login__register}>
-          Register Now!
-        </span>
-      </p>
+          <button type="submit" onClick={loginToApp}>
+            Sign in
+          </button>
+        </form>
+
+        <p>
+          Not a member?{" "}
+          <span onClick={register} className={style.login__register}>
+            Register Now!
+          </span>
+        </p>
+      </div>
     </div>
   );
 }

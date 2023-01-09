@@ -12,9 +12,9 @@ function HeaderOption({ avatar, Icon, title, onClick }) {
       {avatar && (
         <Avatar
           className={style.headerOption__icon}
-          src={userLogged.photoUrl && userLogged.photoUrl}
+          src={userLogged && userLogged.photoUrl}
         >
-          {userLogged.displayName[0].toUpperCase()}
+          {/* {userLogged?.email[0].toUpperCase()} */}
         </Avatar>
       )}
       <h3 className={style.headerOption_title}>{title}</h3>
