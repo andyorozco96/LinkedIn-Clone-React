@@ -6,10 +6,19 @@ import HeaderOption from "./HeaderOption";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import ChatIcon from "@mui/icons-material/Chat";
+import { useDispatch } from "react-redux";
+import { logout } from "../features/userSlice";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
 
 import style from "../sass/_header.module.scss";
 function Header() {
-  /* El header tiene sección izq y derecha */
+  const dispatch = useDispatch();
+  const logoutOfApp = () => {
+    dispatch(logout());
+    signOut(auth);
+  };
+
   return (
     <div className={style.header}>
       {/* LEFT SIDE OF THE HEADER */}
@@ -21,7 +30,7 @@ function Header() {
 
         <div className={style.header__search}>
           <SearchIcon />
-          <input type="text" />
+          <input placeholder="Search" type="text" />
         </div>
       </div>
 
@@ -32,10 +41,7 @@ function Header() {
         <HeaderOption Icon={BusinessCenterIcon} title="Jobs" />
         <HeaderOption Icon={ChatIcon} title="Messaging" />
         <HeaderOption Icon={NotificationsIcon} title="Notifications" />
-        <HeaderOption
-          avatar="https://i.ibb.co/9wwHdkZ/EDITED-6193-removebg-preview.png"
-          title="Me"
-        />
+        <HeaderOption avatar={true} title="Me" onClick={logoutOfApp} />
       </div>
     </div>
   );

@@ -9,14 +9,25 @@ import InputOption from "./InputOption";
 import style from "../sass/_feed.module.scss";
 import Post from "./Post";
 import { colPostsRef } from "../firebase";
-import { serverTimestamp, addDoc, onSnapshot } from "firebase/firestore";
+import {
+  serverTimestamp,
+  addDoc,
+  onSnapshot,
+  orderBy,
+  query,
+} from "firebase/firestore";
+import { selectUser } from "../features/userSlice";
+import { useSelector } from "react-redux";
 
 function Feed() {
+  const userLogged = useSelector(selectUser);
   const [input, setInput] = useState("");
   const [posts, setPosts] = useState([]);
 
+  const q = query(colPostsRef, orderBy("timestamp", "desc"));
+
   useEffect(() => {
-    onSnapshot(colPostsRef, (snapshot) => {
+    onSnapshot(q, query(orderBy("timestamp", "desc")), (snapshot) => {
       setPosts(
         snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -30,10 +41,10 @@ function Feed() {
     e.preventDefault();
 
     addDoc(colPostsRef, {
-      name: "Andrés Orozco",
-      description: "This is a test",
+      name: userLogged.displayName,
+      description: userLogged.email,
       message: input,
-      photoUrl: "",
+      photoUrl: userLogged.photoUrl,
       timestamp: serverTimestamp(),
     });
 

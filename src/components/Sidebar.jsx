@@ -1,9 +1,12 @@
 import { Avatar } from "@mui/material";
 import React from "react";
+import { useSelector } from "react-redux";
+import { selectUser } from "../features/userSlice";
 
 import style from "../sass/_sidebar.module.scss";
 
 function Sidebar() {
+  const userLogged = useSelector(selectUser);
   const recentItem = (topic) => (
     <div className={style.sidebar__recentItem}>
       <span className={style.sidebar__hash}>#</span>
@@ -15,16 +18,21 @@ function Sidebar() {
       {/* THIS IS THE TOP SIDEBAR */}
       <div className={style.sidebar__top}>
         <img
-          src="https://media.licdn.com/dms/image/D4E16AQFpRMTINhsb7Q/profile-displaybackgroundimage-shrink_350_1400/0/1667427236938?e=1678320000&v=beta&t=T9TAqenYE8_HEnz3nv8aLmcS8OGx6DtIbgFuIl_GyAU"
-          alt=""
+          src="https://career-lunch-storage.s3.eu-central-1.amazonaws.com/v2/blog/articles/linkedin-title-picture.jpg"
+          alt="Cover default LinkedIn"
         />
         <Avatar
           className={style.sidebar__avatar}
-          src="https://i.ibb.co/9wwHdkZ/EDITED-6193-removebg-preview.png"
+          src={
+            userLogged.photoUrl ? userLogged.photoUrl : "hola"
+            // : userLogged.email[0].topUpperCase()
+          }
           alt="Profile picture"
-        />
-        <h2>Andrés Orozco</h2>
-        <h4>orozco.andres.dev@gmail.com</h4>
+        >
+          {userLogged.displayName[0].toUpperCase()}
+        </Avatar>
+        <h2>{userLogged.displayName}</h2>
+        <h4>{userLogged.email}</h4>
       </div>
 
       <div className={style.sidebar__stats}>

@@ -23,22 +23,4 @@ const auth = getAuth(app);
 /* Reference to "post" collection inside our DB */
 const colPostsRef = collection(db, "posts");
 
-/*----------- UTILITIES FOR POST COLECCTION --------------*/
-
-/* Get real time data */
-
-// const getDataFromPosts = onSnapshot(colPostsRef, (snapshot) => {
-//   let posts = [];
-//   snapshot.docs.forEach((doc) => {
-//     posts.push({
-//       ...doc.data(),
-//       id: doc.id,
-//     });
-//   });
-
-//   return posts;
-// });
-
-/* Add data to post colection */
-
-export { colPostsRef };
+export { colPostsRef, auth };
